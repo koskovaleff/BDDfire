@@ -119,6 +119,117 @@ Then I should see "Your password was changed successfully. You are now signed in
 ------------------BDDfire------------------------------------------
 
 
+After Ruby install run:
+
+$ gem install bddfire
+
+$ bddfire fire_cucumber
+
+$ bddfire fire_load
+
+$ bddfire fire_accessibility
+
+$ cd cucumber
+
+$ bundle install
+
+
+Parallel Cucumber & Re-run Failed
+
+You can run entire test suite in 10 different processes but you can increase number of processes. The reports are generated for each process. If any scenario failed it will re-run. It will use poltergeist by default but you can change in Rakefile
+
+$ bundle exec rake parallel_cucumber
+
+
+
+Selenium Firefox
+
+You can use selenium driver to run scenario in browser [firefox].
+
+$ bundle exec rake selenium
+
+
+
+You can use PhantomJS based Capybara driver Poltergeist driver.
+
+$ bundle exec rake poltergeist
+
+
+
+REST API Testing
+
+You can run your scenarios in Google Chrome
+
+$ bundle exec rake api
+
+
+Cloud Testing Frameworks
+
+Please enter your USERNAME and KEY in the env.rb file
+
+$ bundle exec rake sauce/browserstack/testingbot
+
+
+Appium:
+
+Run Appium server in the background.
+
+$rake start_appium
+
+Now run cucumber with appium. Make sure you updated env.rb file with capabilities you want to use for Android.
+
+$ bundle exec cucumber -p appium ADB_SERIAL=serial_number
+
+Now run cucumber with appium iOS. Make sure you updated env.rb file with capabilities you want to use for iOS
+
+$ bundle exec cucumber -p appium
+
+Cuke_sniffer
+
+You can use cuke_sniffer to detect smells in your Cucumber. It will generate reports in the cuke_sniffer.html in the 'reports' directory.
+
+$ rake cuke_sniffer
+
+
+Rubocop
+
+You can use rubocop to detect ruby errors in your Ruby file
+
+$ rake rubocop
+
+This will report all the offence in rubocop.
+
+
+Docker
+
+We can run our cucumber scenario inside Docker containers. Assuming you have Docker installed. Check your Docker installation before using.
+
+$ bundle exec rake docker
+
+This will build Docker image 'bddfire-ci' and run cucumber scenarios inside container 'bddfire-ci'. image
+
+Gatling
+
+You can use Gatling setup to execute load tests against your endpoints. Simply change 'load/user-files/simulation/SampleLoadTEST.scala' file and puts your URL to Test as base URL.
+
+$ cd load
+$ sh gatling_local.sh
+
+This will run load tests against your url. You are free to record new simulations. Once finished there will be link to HTML report at the end. image
+
+There is CI integration to plug it with jenkins
+
+
+Accessibility Testing : Axe
+
+We can run accessibility checks on our web page using BDDfire. You have to pass URL as environment variable e.g
+
+$ cd accessibility
+$ bundle exec cucumber -r features URL="http://www.google.co.uk"
+
+
+http://www.rubydoc.info/gems/bddfire/2.0.8
+
 
 
 
