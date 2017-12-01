@@ -114,6 +114,7 @@ Feature: User Resets Password
 Then I should see "Your password was changed successfully. You are now signed in."
 
 
+<<<<<<< HEAD
 
 
 ------------------BDDfire------------------------------------------
@@ -230,6 +231,9 @@ $ bundle exec cucumber -r features URL="http://www.google.co.uk"
 
 http://www.rubydoc.info/gems/bddfire/2.0.8
 
+=======
+End
+>>>>>>> 804a257ed7c526897f7ea0cf1e40be2b3401c97e
 
 
 
